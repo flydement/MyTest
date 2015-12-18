@@ -1,0 +1,15 @@
+<html>
+<input type="button" value="dianji" id="click" onclick="a()"/>
+</html>
+<script>
+function a(){
+
+var State = history.state;
+var title = '123';
+var url = 'c.html';
+history.pushState(State, title, url)
+
+//Ìø×ª
+location.href="./b.html"
+}
+</script>
