@@ -1,6 +1,9 @@
 <?php
-$db->beginTransaction(); //开启事务处理
-$db->exec("INSERT INTO ");//SQL语句
-$db->commit();//提交
+
+$arr['uniqueid'] = 1;
+$arr['callid'] = 1;
+$arr['connecttime'] = 1;
+$s[] =$arr; 
+echo json_encode($s);
 ?>
 
