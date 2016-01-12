@@ -51,11 +51,11 @@ function curl($method=0,$url,$data,$header){
 		
 		<div id='some' style="display:none">
 			<h5>Param</h5><input type="button" id='add' value="Add"/>
-			<div>key:<input name="key[]" />value:<input name="value[]" /></div>
+			<div>key:<input name="key[]" />value:<input name="value[]" /><input type="button" onclick="del(this)" value='del'></div>
 		</div>
 		<div id='header' style="display:">
 			<h5>Header</h5><input type="button" id='head' value="Add"/>
-			<div>key:<input name="hkey[]" />value:<input name="hvalue[]" /></div>
+			<div>key:<input name="hkey[]" />value:<input name="hvalue[]" /><input type="button" onclick="del(this)" value='del'></div>
 		</div>
 		<div>
 			
@@ -66,7 +66,12 @@ function curl($method=0,$url,$data,$header){
 </html>
 <script type="text/javascript" src="jquery.min.js"></script>
 <script>
+function del(v){
+	$(v).parent("div").remove();
+}
 $(function(){
+	
+	
 	$("#type").change(function(){
 		if($("#type").val() == 1){
 			$("#some").show();
@@ -74,12 +79,14 @@ $(function(){
 			$("#some").hide();
 		}
 	})
+	
 	$("#add").click(function(){
-		var html = '<div>key:<input name="key[]" />value:<input name="value[]" /></div>';
+		var html = '<div>key:<input name="key[]" />value:<input name="value[]" /><input type="button" onclick="del(this)" value="del"></div>';
 		$("#some").append(html);
 	});
+	
 	$("#head").click(function(){
-		var html = '<div>key:<input name="hkey[]" />value:<input name="hvalue[]" /></div>';
+		var html = '<div>key:<input name="hkey[]" />value:<input name="hvalue[]" /><input type="button" onclick="del(this)" value="del"></div>';
 		$("#header").append(html);
 	});
 })
